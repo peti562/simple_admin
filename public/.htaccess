@@ -1,0 +1,23 @@
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^(www\.)(.+)
+RewriteRule ^ http://%2%{REQUEST_URI} [R=301,L]
+
+RewriteRule .? - [E=Authorization:%{HTTP:Authorization}]
+
+# Fix for wallart api
+# original case: <user_id>/projects/<id>/email_message
+# new case: users/<user_id>/projects/id/email_message
+RewriteRule ^wallart/([0-9]+) wallart/users [QSA,NC]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+
+Options -Indexes
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>

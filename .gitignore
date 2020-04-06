@@ -1,0 +1,12 @@
+.DS_STORE
+.vagrant
+public/cgi-bin
+public/error_log
+public/.env
+public/.ipn_results.log
+public/vendor/
+public/composer.lock
+public/.idea
+.idea
+public/globalgit.sh
+public/phinx.yml

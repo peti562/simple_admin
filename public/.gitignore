@@ -1,0 +1,9 @@
+cgi-bin
+error_log
+.env
+.ipn_results.log
+/vendor/
+composer.lock
+.idea
+public/globalgit.sh
+public/phinx.yml
